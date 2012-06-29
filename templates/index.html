@@ -1,0 +1,29 @@
+
+<!doctype html>
+<head>
+   <link rel="stylesheet" type="text/css"
+  href={{url_for('static',filename='style.css')}} media="screen" /> <title>Kokobox</title>
+</head>
+  <body>
+    {% include 'title.html' %}
+    <div id="corps">
+    <div id="corps2">
+    {% include 'menu.html' %}
+    <div id="corps3">
+    <div id="about">
+      <h2>Qu'est-ce que Kokobox?</h2>
+      <p>Kokobox est une plateforme de partage libre, inspir&eacute;e par la
+      Piratebox.</p>
+      <p>Elle vise à proposer des fonctionnalités plus avancées, et notamment
+      adaptées pour le Laboratoire Ouvert Grenoblois</p>
+    </div>
+    <div id="func">
+      <h2>Fonctionnalit&eacute;s</h2>
+      <a href="sharefiles/">Partage de fichiers</a><br />
+      Chat (Eventuellement)<br />
+      Bouffe (Si j'ai le temps!)<br />
+    </div>
+</div>
+</div>
+</div>
+  </body>

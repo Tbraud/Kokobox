@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <title>Kokobox</title> 
+  <link rel="stylesheet" type="text/css"
+  href={{url_for('static',filename='style.css')}} media="screen" />
+</head>
+  <body>
+    {% include 'title.html' %}
+    <div id="corps">
+    <div id="corps2">
+    {% include 'menu.html' %}
+    <div id="corps3">
+    <div id="about">
+  <div id="upload">
+    <h2>Envoyer un fichier</h2>
+    <form method="post" enctype="multipart/form-data">
+      Fichier : <input type="file" name="file_data"><br />
+      <input type="submit" value="Envoyer" />
+    </form>
+    {% if flag==1 %}
+      Fichier envoyé avec succès</br>
+    {% endif%}
+  </div>
+
+  <div id="filelist">
+    <h2>Fichiers présents sur le serveur</h2>
+    <table border="1">
+      <thead align=center>
+    <tr>
+      <td>Fichier</td>
+      <td>Taille</td>
+    </tr>
+  </thead>
+    {% for file in files_list %}
+    <tr>
+      <td><a href=download/{{file[0]}}>{{file[0]}}</a></td>
+      <td>{{file[1]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+  </div>
+</div>
+</div>
+  </body>

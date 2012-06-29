@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+  <title>Kokobox</title> 
+  <link rel="stylesheet" type="text/css"
+  href={{url_for('static',filename='style.css')}} media="screen" />
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+ $(document).ready(function() {
+ 	 $("#chat").load("/chat/");
+   var refreshId = setInterval(function() {
+      $("#chat").load('/chat/');
+   }, 9000);
+});
+</script>
+</head>
+<body>
+  {% include 'title.html' %}
+  <div id="corps">
+    <div id="corps2">
+      {% include 'menu.html' %}
+      <div id="corps3">   
+
+
+
+        <div id="chat">
+         </div>
+         <div id="chat2">
+              <form name="message" method="post"
+                enctype="multipart/form-data">
+                Username: <input name="username" type="text" id="username"
+                value={%if name%}{{name}}{%else%}'Anonyme'{%endif%}>
+        <input name="usermsg"  type="text" id="usermsg" size="63" />  
+        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />  
+    </form>    
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
