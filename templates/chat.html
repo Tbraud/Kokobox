@@ -3,7 +3,7 @@
   <title>Kokobox</title> 
   <link rel="stylesheet" type="text/css"
   href={{url_for('static',filename='style.css')}} media="screen" />
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src={{url_for('static',filename='jquery.js')}}></script>
 <script>
  $(document).ready(function() {
  	 $("#chat").load("/chat/");
@@ -19,9 +19,6 @@
     <div id="corps2">
       {% include 'menu.html' %}
       <div id="corps3">   
-
-
-
         <div id="chat">
          </div>
          <div id="chat2">

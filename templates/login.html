@@ -1,0 +1,23 @@
+<!doctype html>
+<head>
+  <link rel="stylesheet" type="text/css"
+  href={{url_for('static',filename='style.css')}} media="screen" /> <title>Kokobox</title>
+</head>
+<body>
+  {% include 'title.html' %}
+  <div id="corps">
+    <div id="corps2">
+      {% include 'menu.html' %}
+      <div id="corps3">
+        <div id="login">
+
+          <form method="post" enctype="multipart/form-data">
+            Username : <input type="text" name="username"><br />
+            Password : <input type="password" name="passwd"><br />
+            <input type="submit" value="Envoyer" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

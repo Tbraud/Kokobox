@@ -1,0 +1,73 @@
+
+<!doctype html>
+<head>
+  <title>Kokobox</title> 
+  <link rel="stylesheet" type="text/css"
+  href={{url_for('static',filename='style.css')}} media="screen" />
+</head>
+<body>
+  {% include 'title.html' %}
+  <div id="corps">
+    <div id="corps2">
+      {% include 'menu.html' %}
+      <div id="corps3">   
+        <div id="food">
+          {%if poll_state==0%}
+          <form name="message" method="post"
+            enctype="multipart/form-data">
+            <table border="1">
+              <thead align=center>
+                <tr>
+                  <td>User</td>
+                  <td>Tacos</td>
+                  <td>Pizza</td>
+                  <td>Burger</td>
+                </tr>
+              </thead>
+              {%for choice in choices_list %}
+                <tr>
+                  <td>{{choice[0]}}</td>
+                  <td align=center>{% if choice[1]=='tacos'%}X{%endif%}</td>
+                  <td align=center>{% if choice[1]=='pizza'%}X{%endif%}</td>
+                  <td align=center>{% if choice[1]=='burger'%}X{%endif%}</td>
+                </tr> 
+              {% endfor %}            
+              {% if vote==0 %}
+                <tr>
+                  <td></td>
+                  <td align=center><input type="radio" name="food" value="tacos" /></td>
+                  <td align=center><input type="radio" name="food" value="pizza" /></td>
+                  <td align=center><input type="radio" name="food" value="burger" /></td>
+                </tr>
+              </table>
+
+              Username: <input name="username" type="text" id="username"
+              value='Anonyme'></br>
+              <input type="submit" value="Envoyer" />
+            </form>
+            {%else%}
+            <tr>Vous avez déjà voté aujourd'hui</tr></table>
+          </form>
+          {%endif%}
+          {%else%}
+          {%for order in orders_list %}
+          {{order[0]}} : {{order[1]}}<br/>
+          {%endfor%}
+          <form name="message" method="post" enctype="multipart/form-data"
+            accept-charset="UTF-8">
+            Username : <input name="username" type="text" id="username"
+              value='Anonyme'></br>
+              Commande : <br/><textarea name="order" rows="3" cols="60" id="order"
+              ></textarea><br/>
+            <input type="submit" value="Envoyer" />
+          </form>
+
+
+          {%endif%}       
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
